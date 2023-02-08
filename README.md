@@ -11,6 +11,7 @@
 <br>
 
 ## 😎 서비스 소개 영상 및 사진
+### 💌 [서비스 소개 영상](https://www.youtube.com/watch?v=MHO3Fofvu3A)
 
 ![A1 (300 DPI)](https://user-images.githubusercontent.com/72662822/216532231-59aa7003-b65b-4d4e-b122-8165b24ed710.png)
 
@@ -76,11 +77,6 @@
   - 각자 작업한 결과물의 완성본이 main 브랜치의 관심사였던 점
   - PR을 날리는 단위를 작게 하자고 미리 협의한 점
   - 각자 작업물의 히스토리는 main 브랜치에 남기기보다는 로컬에 남겨 관리하는 것이 편하겠다고 판단한 점
-
-<br>
-
-## 💌 서비스 소개 영상
-https://www.youtube.com/watch?v=MHO3Fofvu3A
 
 <br>
 
