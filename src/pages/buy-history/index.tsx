@@ -47,14 +47,14 @@ const BuyHistoryPage = () => {
     }
   }, [accessToken, me]);
 
-  const { sessionLoading, isAuthed } = useAuth();
+  const { sessionLoading, isLoggedIn } = useAuth();
 
-  if (!sessionLoading && !isAuthed) {
+  if (!sessionLoading && !isLoggedIn) {
     navigate('/login');
     normalToast('로그인이 필요합니다.');
   }
 
-  if (sessionLoading || !isAuthed) {
+  if (sessionLoading || !isLoggedIn) {
     return <Spinner />;
   }
 

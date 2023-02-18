@@ -34,7 +34,7 @@ import Spinner from '../../components/spinner';
 import { ChatType } from '../../types/chat';
 
 const ProfilePage = () => {
-  const { me, isAuthed, sessionLoading } = useAuth();
+  const { me, sessionLoading } = useAuth();
   const accessToken = loadItem('accessToken');
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -141,85 +141,74 @@ const ProfilePage = () => {
     };
   }, [accessToken, modalOpen]);
 
-  if (!sessionLoading && !isAuthed) {
-    navigate('/login');
-    normalToast('로그인이 필요합니다.');
-  }
-
   return (
     <S.OuterWrapper>
-      {sessionLoading || !me || !isAuthed ? (
-        <Spinner />
-      ) : (
-        <>
-          <Gnb isColored />
-          <S.Wrapper>
-            <S.ContentWrapper>
-              <Header
-                username={me?.username || null}
-                handleClick={() => setModalOpen(true)}
-                isLoading={sessionLoading}
-                unread={unreadTotalCount}
-              />
-              <S.InfoWrapper>
-                <UserInfo
-                  me={me || null}
-                  edit={edit}
-                  isLoading={sessionLoading}
-                  setEdit={setEdit}
-                />
-                <TxInfo
-                  me={me || null}
-                  edit={edit}
-                  isLoading={sessionLoading}
-                  setEdit={setEdit}
-                  setOpenAreaModal={setOpenAreaModal}
-                />
-              </S.InfoWrapper>
+      <Gnb isColored />
+      <S.Wrapper>
+        <S.ContentWrapper>
+          <Header
+            username={me?.username || null}
+            handleClick={() => setModalOpen(true)}
+            isLoading={sessionLoading}
+            unread={unreadTotalCount}
+          />
+          <S.InfoWrapper>
+            <UserInfo
+              me={me || null}
+              edit={edit}
+              isLoading={sessionLoading}
+              setEdit={setEdit}
+            />
+            <TxInfo
+              me={me || null}
+              edit={edit}
+              isLoading={sessionLoading}
+              setEdit={setEdit}
+              setOpenAreaModal={setOpenAreaModal}
+            />
+          </S.InfoWrapper>
 
-              <S.NavigationWrapper>
-                <NavigationButton
-                  isLoading={sessionLoading}
-                  img={sellIcon}
-                  text="판매내역"
-                  handleClick={() => navigate('/profile/me/sell')}
-                />
-                <NavigationButton
-                  isLoading={sessionLoading}
-                  img={buyIcon}
-                  text="구매내역"
-                  handleClick={() => navigate('/profile/me/buy')}
-                />
-                <NavigationButton
-                  isLoading={sessionLoading}
-                  img={likeIcon}
-                  text="찜한 상품"
-                  handleClick={() => navigate('/profile/me/like')}
-                />
-                <NavigationButton
-                  isLoading={sessionLoading}
-                  img={reviewIcon}
-                  text="거래후기"
-                  handleClick={() => navigate('/profile/me/review')}
-                />
-                <NavigationButton
-                  isLoading={sessionLoading}
-                  img={lifeIcon}
-                  text="동네생활"
-                  handleClick={() => navigate('/profile/me/neighborhood')}
-                />
-                <NavigationButton
-                  isLoading={sessionLoading}
-                  img={likeIcon}
-                  text="찜한 동네생활"
-                  handleClick={() => navigate('/profile/me/neighborhoodlike')}
-                />
-              </S.NavigationWrapper>
-            </S.ContentWrapper>
-          </S.Wrapper>
-          <ContentFooter />
-        </>
-      )}
+          <S.NavigationWrapper>
+            <NavigationButton
+              isLoading={sessionLoading}
+              img={sellIcon}
+              text="판매내역"
+              handleClick={() => navigate('/profile/me/sell')}
+            />
+            <NavigationButton
+              isLoading={sessionLoading}
+              img={buyIcon}
+              text="구매내역"
+              handleClick={() => navigate('/profile/me/buy')}
+            />
+            <NavigationButton
+              isLoading={sessionLoading}
+              img={likeIcon}
+              text="찜한 상품"
+              handleClick={() => navigate('/profile/me/like')}
+            />
+            <NavigationButton
+              isLoading={sessionLoading}
+              img={reviewIcon}
+              text="거래후기"
+              handleClick={() => navigate('/profile/me/review')}
+            />
+            <NavigationButton
+              isLoading={sessionLoading}
+              img={lifeIcon}
+              text="동네생활"
+              handleClick={() => navigate('/profile/me/neighborhood')}
+            />
+            <NavigationButton
+              isLoading={sessionLoading}
+              img={likeIcon}
+              text="찜한 동네생활"
+              handleClick={() => navigate('/profile/me/neighborhoodlike')}
+            />
+          </S.NavigationWrapper>
+        </S.ContentWrapper>
+      </S.Wrapper>
+      <ContentFooter />
 
       {modalOpen && (
         <ModalWrapper handleClose={() => setModalOpen(false)}>
