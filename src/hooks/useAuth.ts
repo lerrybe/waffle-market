@@ -7,7 +7,7 @@ import { postRefresh, sessionActions } from '../store/slices/sessionSlice';
 
 export const useAuth = () => {
   const dispatch = useAppDispatch();
-  const [isAuthed, setIsAuthed] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [sessionLoading, setSessionLoading] = useState(true);
 
   const { me } = useAppSelector(state => state.users);
@@ -17,7 +17,7 @@ export const useAuth = () => {
     dispatch(getMe(loadItem('accessToken')))
       .unwrap()
       .then(() => {
-        setIsAuthed(true);
+        setIsLoggedIn(true);
         setSessionLoading(false);
       })
       .catch(() => {
@@ -27,12 +27,12 @@ export const useAuth = () => {
             dispatch(getMe(loadItem('accessToken')))
               .unwrap()
               .then(() => {
-                setIsAuthed(true);
+                setIsLoggedIn(true);
                 setSessionLoading(false);
               });
           })
           .catch(() => {
-            setIsAuthed(false);
+            setIsLoggedIn(false);
             setSessionLoading(false);
             dispatch(sessionActions.logout());
           });
@@ -43,5 +43,5 @@ export const useAuth = () => {
     setMe();
   }, []);
 
-  return { me, isAuthed, sessionLoading };
+  return { me, isLoggedIn, sessionLoading };
 };

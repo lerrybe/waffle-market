@@ -21,7 +21,7 @@ const TradePostPage = () => {
   const dispatch = useAppDispatch();
   const postId = Number(useParams().id);
   const [dataLoading, setDataLoading] = useState(true);
-  const { sessionLoading, isAuthed } = useAuth();
+  const { sessionLoading, isLoggedIn } = useAuth();
   const accessToken = loadItem('accessToken');
 
   useEffect(() => {
@@ -46,12 +46,12 @@ const TradePostPage = () => {
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  if (!sessionLoading && !isAuthed) {
+  if (!sessionLoading && !isLoggedIn) {
     navigate('/login');
     normalToast('로그인이 필요합니다.');
   }
 
-  if (sessionLoading || !isAuthed) {
+  if (sessionLoading || !isLoggedIn) {
     return <Spinner />;
   }
 

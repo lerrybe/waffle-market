@@ -10,7 +10,15 @@ export type User = {
   createdAt?: Date;
   updatedAt?: Date;
   searchScope?: SearchScope;
+  grade?: GradeScope;
 };
+
+export enum GradeScope {
+  ETC = 'etc',
+  SILVER = 'silver',
+  GOLD = 'gold',
+  PLATINUM = 'platinum',
+}
 
 export enum SearchScope {
   NARROW = 'NARROW',

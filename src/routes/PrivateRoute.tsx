@@ -1,38 +1,51 @@
 import { ReactElement } from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
+
 import { useAuth } from '../hooks/useAuth';
+import { GradeScope } from '../types/users';
+import { normalToast } from '../utils/basic-toast-modal';
+import { authStrategy, getGradeNum } from './authStrategy';
 
 import Spinner from '../components/spinner';
-import { normalToast } from '../utils/basic-toast-modal';
 
 interface PrivateRouteProps {
-  children?: ReactElement;
-  authentication: boolean;
+  minGrade?: number;
+  isAuthNeeded: boolean;
 }
 
 export default function PrivateRoute({
-  authentication,
-}: PrivateRouteProps): React.ReactElement | null {
-  const { isAuthed, sessionLoading } = useAuth();
+  minGrade,
+  isAuthNeeded,
+}: PrivateRouteProps): ReactElement | null {
+  const navigate = useNavigate();
+  const { me, isLoggedIn, sessionLoading } = useAuth();
+  const isAuthed = authStrategy(
+    minGrade || 0,
+    getGradeNum(me?.grade || GradeScope.SILVER),
+  );
 
   if (sessionLoading) {
     return <Spinner />;
   }
 
-  if (authentication) {
-    // DESC: 인증이 반드시 필요한 페이지
-    if (!sessionLoading && !isAuthed) {
-      normalToast('로그인이 필요합니다.');
-    }
-    return !sessionLoading && !isAuthed ? (
-      <>
-        <Navigate to="/" /> <Navigate to="/login" />
-      </>
-    ) : (
-      <Outlet />
-    );
-  } else {
-    // DESC: 인증이 반드시 필요 없는 페이지 (로그인, 회원가입)
-    return !sessionLoading && isAuthed ? <Navigate to="/" /> : <Outlet />;
+  if (!isAuthNeeded && isLoggedIn) {
+    navigate('/');
   }
+
+  if (isAuthNeeded && !isLoggedIn) {
+    normalToast('로그인이 필요합니다.');
+    return (
+      <>
+        <Navigate to="/" />
+        <Navigate to="/login" />
+      </>
+    );
+  }
+
+  if (isAuthNeeded && isLoggedIn && !isAuthed) {
+    normalToast('접근 권한이 없습니다.');
+    navigate(-1);
+  }
+
+  return <Outlet />;
 }

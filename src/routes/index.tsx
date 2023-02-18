@@ -32,66 +32,66 @@ function EntryRoute() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/*" element={<ErrorPage />} />
-        <Route element={<PrivateRoute authentication={false} />}>
+        <Route element={<PrivateRoute isAuthNeeded={false} />}>
           <Route path="/signup" element={<SignUpPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={false} />}>
+        <Route element={<PrivateRoute isAuthNeeded={false} />}>
           <Route path="/login" element={<LoginPage />} />
         </Route>
         <Route path="/login/kakao" element={<KaKaoLogin />} />
         <Route path="/login/google" element={<GoogleLoginPage />} />
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/profile/me" element={<ProfilePage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/profile/me/review" element={<MyReviewPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/profile/:id" element={<ProfileOtherPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/profile/:id/review" element={<OthersReviewPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/profile/me/sell" element={<SellHistoryMyPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/profile/:id/sell" element={<SellHistoryOthersPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/profile/me/buy" element={<BuyHistoryPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/profile/me/like" element={<LikeHistoryPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route
             path="/profile/me/neighborhood"
             element={<NeighborHistoryPage />}
           />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route
             path="/profile/me/neighborhoodlike"
             element={<NeighborHistoryLikePage />}
           />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/market" element={<MarketPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/tradepost/:id" element={<TradePostPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/tradepost/:id/review" element={<SendReview />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/chat/messages/:UUID/:uid/:pid" element={<ChatPage />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/neighborhood" element={<NeighborhoodLanding />} />
         </Route>
-        <Route element={<PrivateRoute authentication={true} />}>
+        <Route element={<PrivateRoute minGrade={1} isAuthNeeded />}>
           <Route path="/neighborhood/:id" element={<NeighborhoodPostPage />} />
         </Route>
       </Routes>
