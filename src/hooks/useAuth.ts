@@ -7,10 +7,9 @@ import { postRefresh, sessionActions } from '../store/slices/sessionSlice';
 
 export const useAuth = () => {
   const dispatch = useAppDispatch();
+  const { me } = useAppSelector(state => state.users);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [sessionLoading, setSessionLoading] = useState(true);
-
-  const { me } = useAppSelector(state => state.users);
 
   // DESC: 로그인 된 내 정보를 얻어오는 것이 목적
   const setMe = () => {
