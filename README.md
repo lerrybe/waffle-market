@@ -1,5 +1,5 @@
 # team3-web
-
+[▶️ 동일 프로젝트의 server repository](https://github.com/wafflestudio20-5/team3-server)
 # 🧇 Waffle-Market
 
 ## 🥕 당근마켓 클론 코딩, 와플마켓 Client
