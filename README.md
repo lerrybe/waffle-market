@@ -11,9 +11,10 @@
 <br>
 
 ## 😎 서비스 소개 영상 및 사진
-### 💌 [서비스 소개 영상](https://www.youtube.com/watch?v=MHO3Fofvu3A)
 
 ![A1 (300 DPI)](https://user-images.githubusercontent.com/72662822/216532231-59aa7003-b65b-4d4e-b122-8165b24ed710.png)
+
+### 💌 [서비스 소개 영상](https://www.youtube.com/watch?v=MHO3Fofvu3A)
 
 <br>
 
