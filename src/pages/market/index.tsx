@@ -212,72 +212,81 @@ const MarketPage = () => {
 
   const getFirstList = () => {
     setIsLoading(true);
-    if (accessToken) {
-      dispatch(
-        getTradePostList({
-          accessToken: accessToken,
-          keyword: keyword,
-          page: page,
-          limit: 20,
-          isTrading: isTrading,
-        }),
-      )
-        .unwrap()
-        .then(res => {
-          setData(res.posts);
-          setTotalPage(Math.ceil(res.paging.total / res.paging.limit));
-          setIsLoading(false);
-          setIsFirst(false);
-        })
-        .catch(err => {
-          if (axios.isAxiosError(err)) {
-            if (err.response?.status === 404) {
-              redirectWithMsg(2, err.response?.data.error, () => navigate(-1));
-            } else {
-              redirectWithMsg(2, '요청을 수행할 수 없습니다.', () =>
-                navigate('/'),
-              );
-            }
-          }
-        });
-    }
+    // if (accessToken) {
+    //   dispatch(
+    //     getTradePostList({
+    //       accessToken: accessToken,
+    //       keyword: keyword,
+    //       page: page,
+    //       limit: 20,
+    //       isTrading: isTrading,
+    //     }),
+    //   )
+    //     .unwrap()
+    //     .then(res => {
+    //       setData(res.posts);
+    //       setTotalPage(Math.ceil(res.paging.total / res.paging.limit));
+    //       setIsLoading(false);
+    //       setIsFirst(false);
+    //     })
+    //     .catch(err => {
+    //       if (axios.isAxiosError(err)) {
+    //         if (err.response?.status === 404) {
+    //           redirectWithMsg(2, err.response?.data.error, () => navigate(-1));
+    //         } else {
+    //           redirectWithMsg(2, '요청을 수행할 수 없습니다.', () =>
+    //             navigate('/'),
+    //           );
+    //         }
+    //       }
+    //     });
+    // }
+    axios
+      .get('/tradeposts')
+      .then(res => {
+        setData(res.data.posts);
+        setIsLoading(false);
+        console.log(res);
+      }).catch(err => {
+        console.log('err', err);
+      });
   };
 
   useEffect(() => {
     getFirstList();
-  }, [accessToken, page]);
+  }, [accessToken]);
 
   const searchHandler = () => {
-    setIsLoading(true);
-    if (accessToken) {
-      dispatch(
-        getTradePostList({
-          accessToken: accessToken,
-          keyword: keyword,
-          page: page,
-          limit: 20,
-          isTrading: isTrading,
-        }),
-      )
-        .unwrap()
-        .then(res => {
-          setData(res.posts);
-          setPage(1);
-          setTotalPage(Math.ceil(res.paging.total / res.paging.limit));
-          setIsLoading(false);
-        })
-        .catch(err => {
-          if (axios.isAxiosError(err)) {
-            if (err.response?.status === 404) {
-              redirectWithMsg(2, err.response?.data.error, () => navigate(-1));
-            } else {
-              redirectWithMsg(2, '요청을 수행할 수 없습니다.', () =>
-                navigate('/'),
-              );
-            }
-          }
-        });
-    }
+    // setIsLoading(true);
+    // if (accessToken) {
+    //   dispatch(
+    //     getTradePostList({
+    //       accessToken: accessToken,
+    //       keyword: keyword,
+    //       page: page,
+    //       limit: 20,
+    //       isTrading: isTrading,
+    //     }),
+    //   )
+    //     .unwrap()
+    //     .then(res => {
+    //       setData(res.posts);
+    //       setPage(1);
+    //       setTotalPage(Math.ceil(res.paging.total / res.paging.limit));
+    //       setIsLoading(false);
+    //     })
+    //     .catch(err => {
+    //       if (axios.isAxiosError(err)) {
+    //         if (err.response?.status === 404) {
+    //           redirectWithMsg(2, err.response?.data.error, () => navigate(-1));
+    //         } else {
+    //           redirectWithMsg(2, '요청을 수행할 수 없습니다.', () =>
+    //             navigate('/'),
+    //           );
+    //         }
+    //       }
+    //     });
+    // }
   };
 
   useEffect(() => {
@@ -295,14 +304,14 @@ const MarketPage = () => {
       setDong(getDong(me?.location) as string);
     }
   }, [me, accessToken]);
-  const { sessionLoading, isLoggedIn } = useAuth();
+  // const { sessionLoading, isLoggedIn } = useAuth();
 
-  if (!sessionLoading && !isLoggedIn) {
-    navigate('/login');
-    normalToast('로그인이 필요합니다.');
-  }
+  // if (!sessionLoading && !isLoggedIn) {
+  //   navigate('/login');
+  //   normalToast('로그인이 필요합니다.');
+  // }
 
-  if (sessionLoading || !isLoggedIn) {
+  if (!data) {
     return <Spinner />;
   }
 

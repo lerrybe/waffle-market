@@ -37,10 +37,10 @@ const ProfileOtherPage = () => {
           if (axios.isAxiosError(err)) {
             if (err.response?.status === 404) {
               normalToast(err.response?.data.error);
-              navigate(-1);
+              // navigate(-1);
             } else {
               normalToast('요청을 수행할 수 없습니다.');
-              navigate(-1);
+              // navigate(-1);
             }
           }
         });

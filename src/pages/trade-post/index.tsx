@@ -25,35 +25,35 @@ const TradePostPage = () => {
   const accessToken = loadItem('accessToken');
 
   useEffect(() => {
-    if (accessToken && postId) {
-      dispatch(getTradePost({ accessToken, postId }))
-        .unwrap()
-        .then(() => {
-          setDataLoading(false);
-        })
-        .catch(err => {
-          if (axios.isAxiosError(err)) {
-            if (err.response?.status === 404) {
-              normalToast(err.response?.data.error);
-            } else {
-              normalToast('요청을 수행할 수 없습니다.');
-              navigate(-1);
-            }
-          }
-        });
-    }
+    // if (accessToken && postId) {
+    //   dispatch(getTradePost({ accessToken, postId }))
+    //     .unwrap()
+    //     .then(() => {
+    //       setDataLoading(false);
+    //     })
+    //     .catch(err => {
+    //       if (axios.isAxiosError(err)) {
+    //         if (err.response?.status === 404) {
+    //           normalToast(err.response?.data.error);
+    //         } else {
+    //           normalToast('요청을 수행할 수 없습니다.');
+    //           navigate(-1);
+    //         }
+    //       }
+    //     });
+    // }
   }, [accessToken, postId]);
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  if (!sessionLoading && !isLoggedIn) {
-    navigate('/login');
-    normalToast('로그인이 필요합니다.');
-  }
+  // if (!sessionLoading && !isLoggedIn) {
+  //   navigate('/login');
+  //   normalToast('로그인이 필요합니다.');
+  // }
 
-  if (sessionLoading || !isLoggedIn) {
-    return <Spinner />;
-  }
+  // if (sessionLoading || !isLoggedIn) {
+  //   return <Spinner />;
+  // }
 
   if (dataLoading) {
     return <Spinner />;

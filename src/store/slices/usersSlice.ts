@@ -10,9 +10,7 @@ export const getMe = createAsyncThunk(
   'users/getMe',
   async (token: string | null, { rejectWithValue }) => {
     try {
-      const res = await axiosI.get<User>(`/users/me`, {
-        headers: auth(token),
-      });
+      const res = await axios.get<User>(`/users/me`);
       return res.data;
     } catch (err) {
       return rejectWithValue(err);
@@ -38,7 +36,7 @@ export const getUser = createAsyncThunk(
   'users/getUser',
   async (userId: number, { rejectWithValue }) => {
     try {
-      const res = await axiosI.get<User>(`/users/${userId}`);
+      const res = await axios.get<User>(`/users/${userId}`);
       return res.data;
     } catch (err) {
       return rejectWithValue(err);

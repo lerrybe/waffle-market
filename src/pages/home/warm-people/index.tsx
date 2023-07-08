@@ -17,7 +17,7 @@ const WarmPeople = () => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/tradepost/warmest-people`)
+      .get(`/tradepost/warmest-people`)
       .then(res => {
         setUsers(res.data);
       })

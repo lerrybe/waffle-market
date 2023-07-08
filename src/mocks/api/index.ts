@@ -1,4 +1,5 @@
 import { usersAPI } from './api-users';
+import {tradePostAPI} from './api-tradepost';
+import {authAPI} from './api-auth';
 
-// DESC: 작성한 핸들러 통합해 export
-export default [...usersAPI];
+export default [...authAPI, ...usersAPI, ...tradePostAPI];

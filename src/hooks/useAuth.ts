@@ -4,6 +4,7 @@ import { loadItem } from '../utils/storage';
 import { getMe } from '../store/slices/usersSlice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { postRefresh, sessionActions } from '../store/slices/sessionSlice';
+import { User1 } from '../mocks/data/users';
 
 export const useAuth = () => {
   const dispatch = useAppDispatch();
@@ -42,5 +43,5 @@ export const useAuth = () => {
     setMe();
   }, []);
 
-  return { me, isLoggedIn, sessionLoading };
+  return { me: User1, isLoggedIn: true, sessionLoading: false };
 };
