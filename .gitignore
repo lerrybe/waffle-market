@@ -24,3 +24,7 @@ yarn-error.log*
 
 # .env
 .env
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/modules.xml
+/.idea/team3-web.iml
+/.idea/vcs.xml
