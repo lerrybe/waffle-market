@@ -1,7 +1,7 @@
 import * as S from './section3.styled';
-import card4 from '../../../assets/card4.png';
-import card5 from '../../../assets/card5.png';
-import card6 from '../../../assets/card6.png';
+import card4 from '../../../assets/card4.webp';
+import card5 from '../../../assets/card5.webp';
+import card6 from '../../../assets/card6.webp';
 import { ReactComponent as ArrowDown } from '../../../assets/arrow-down.svg';
 
 const Section3 = () => {

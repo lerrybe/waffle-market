@@ -2,9 +2,9 @@ import { useCallback, useState } from 'react';
 
 import * as S from './section0.styled';
 import scroll from '../../../assets/wheel.svg';
-import landing1 from '../../../assets/landing1.svg';
-import landing2 from '../../../assets/landing2.svg';
-import landing3 from '../../../assets/landing3.png';
+import landing1 from '../../../assets/landing1.webp';
+import landing2 from '../../../assets/landing2.webp';
+import landing3 from '../../../assets/landing3.webp';
 import click from '../../../assets/cursor-white.png';
 
 const Section0 = () => {

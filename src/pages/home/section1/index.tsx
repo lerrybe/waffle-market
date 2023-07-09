@@ -1,8 +1,8 @@
 import * as S from './section1.styled';
 
-import slider1 from '../../../assets/landing-slider1.svg';
-import slider2 from '../../../assets/landing-slider2.svg';
-import slider3 from '../../../assets/landing-slider3.svg';
+import slider1 from '../../../assets/landing-slider1.webp';
+import slider2 from '../../../assets/landing-slider2.webp';
+import slider3 from '../../../assets/landing-slider3.webp';
 import appLogo from '../../../assets/app-logo.svg';
 import mypage from '../../../assets/waffle-mypage.svg';
 import neighbor from '../../../assets/waffle-neighbor.svg';
