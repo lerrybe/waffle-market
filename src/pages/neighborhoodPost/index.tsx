@@ -24,7 +24,7 @@ import { CommentContainer, Container, Wrapper } from './neighbor-post-styled';
 import { UTCtoKST } from '../../utils/location';
 import Spinner from '../../components/spinner';
 
-export const NeighborhoodPostPage = () => {
+const NeighborhoodPostPage = () => {
   const params = useParams();
   const id = Number(params.id);
   const dispatch = useAppDispatch();
@@ -130,3 +130,5 @@ export const NeighborhoodPostPage = () => {
     </Wrapper>
   );
 };
+
+export default NeighborhoodPostPage;

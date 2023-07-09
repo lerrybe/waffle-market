@@ -7,7 +7,7 @@ import { neighborPost } from '../../types/neighborhood';
 import { NeighborContainer } from './components/neighbor-contatiner';
 import { Wrapper } from './neighbor-history.styled';
 
-export const NeighborHistoryPage = () => {
+const NeighborHistoryPage = () => {
   return (
     <Wrapper>
       <Gnb isColored />
@@ -16,3 +16,5 @@ export const NeighborHistoryPage = () => {
     </Wrapper>
   );
 };
+
+export default NeighborHistoryPage;

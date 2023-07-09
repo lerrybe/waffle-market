@@ -45,6 +45,7 @@ const ShortCut = ({
     <Container>
       <Link to={`/tradepost/${id}`}>
         <Img
+          loading="lazy"
           src={img}
           onError={e => ((e.target as HTMLImageElement).src = alt)}
         />

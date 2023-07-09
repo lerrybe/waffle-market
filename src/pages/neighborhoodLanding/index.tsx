@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { NeighborContainer } from './components/neighbor-contatiner';
 import { Wrapper } from './neighbor.styled';
 
-export const NeighborhoodLanding = () => {
+const NeighborhoodLanding = () => {
   return (
     <>
       <Gnb isColored />
@@ -16,3 +16,5 @@ export const NeighborhoodLanding = () => {
     </>
   );
 };
+
+export default NeighborhoodLanding;

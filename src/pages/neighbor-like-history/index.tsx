@@ -6,8 +6,9 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { neighborPost } from '../../types/neighborhood';
 import { NeighborContainer } from './components/neighbor-contatiner';
 import { Wrapper } from './neighbor-history.styled';
+import NeighborHistoryPage from '../neighbor-history';
 
-export const NeighborHistoryLikePage = () => {
+const NeighborHistoryLikePage = () => {
   return (
     <Wrapper>
       <Gnb isColored />
@@ -16,3 +17,5 @@ export const NeighborHistoryLikePage = () => {
     </Wrapper>
   );
 };
+
+export default NeighborHistoryLikePage;
